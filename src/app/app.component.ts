@@ -2,9 +2,25 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <button (click)="page = 'shop'">Shop</button>
+    <button (click)="page = 'users'">Users</button>
+    <button (click)="page = 'contacts'">Contacts</button>
+<!--    <app-demo-shop *ngIf="page === 'shop'"></app-demo-shop>
+    <app-demo-users *ngIf="page === 'users'"></app-demo-users>
+    <app-contacts *ngIf="page === 'contacts'"></app-contacts>-->
+    
+    <div [ngSwitch]="page">
+      <app-demo-shop *ngSwitchCase="'shop'"></app-demo-shop>
+      <app-demo-users *ngSwitchCase="'users'"></app-demo-users>
+      <app-contacts *ngSwitchCase="'contacts'"></app-contacts>
+    </div>
+  `,
 })
 export class AppComponent {
-  title = 'first-demo';
+  page: string = 'shop';
+
+  constructor() {
+  }
+
 }

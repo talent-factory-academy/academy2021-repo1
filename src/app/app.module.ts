@@ -6,6 +6,9 @@ import { HelloComponent } from './components/hello.component';
 import { DemoUsersComponent } from './components/demo-users.component';
 import { DemoShopComponent } from './components/demo-shop.component';
 import { ContactsComponent } from './components/contacts.component';
+import { FormsModule } from '@angular/forms';
+import { Contacts2waysComponent } from './components/contacts2ways.component';
+import { StopPropagationDirective } from './directives/stop-propagation.directive';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,12 @@ import { ContactsComponent } from './components/contacts.component';
     DemoUsersComponent,
     DemoShopComponent,
     ContactsComponent,
+    Contacts2waysComponent,
+    StopPropagationDirective,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

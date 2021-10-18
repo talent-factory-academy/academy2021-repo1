@@ -49,7 +49,7 @@ type UserForm = Omit<User, 'birthday'>;
         [ngClass]="{'is-invalid': inputLastName.invalid && f.dirty, 'is-valid': inputLastName.valid}"
       >
       <small *ngIf="inputLastName.errors?.pattern">Last name must contain chars/number only</small>
-      
+       
       <select
         class="form-control"
         name="gender"

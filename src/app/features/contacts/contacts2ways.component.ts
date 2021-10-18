@@ -14,7 +14,7 @@ interface User {
       <input type="text" [(ngModel)]="selectedUser.name" name="name">
       <input type="text" [(ngModel)]="selectedUser.surname" name="surname">
       <select [(ngModel)]="selectedUser.gender" name="gender">
-        <option value="all">....</option>
+        <option value="all">Select Gender</option>
         <option value="M">male</option>
         <option value="F">female</option>    
       </select>
@@ -33,18 +33,18 @@ interface User {
 })
 export class Contacts2waysComponent {
   users: User[] = [];
-  selectedUser: User;
+  selectedUser!: User;
 
   constructor() {
-    this.selectedUser = {
-      name: 'pippo',
-      surname: 'biondi',
-      gender: 'F'
-    }
+    const user: string | null = localStorage.getItem('user');
+    this.selectedUser = user ?
+      JSON.parse(user) :
+      { name: '', gender: 'all', surname: ''}
   }
 
   save(f: NgForm): void {
-    this.users.push(f.value)
+    this.users.push({ ...this.selectedUser })
+    localStorage.setItem('user', JSON.stringify(this.selectedUser))
   }
 
   selectItem(user: User) {

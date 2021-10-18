@@ -6,3 +6,4 @@ describe('StopPropagationDirective', () => {
     expect(directive).toBeTruthy();
   });
 });
+

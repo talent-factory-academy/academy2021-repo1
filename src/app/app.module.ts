@@ -10,6 +10,14 @@ import { Contacts2waysComponent } from './features/contacts/contacts2ways.compon
 import { StopPropagationDirective } from './shared/directives/stop-propagation.directive';
 import { PostsComponent } from './features/posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HelloComponent } from './shared/components/hello.component';
+import { CardComponent } from './shared/components/card.component';
+import { UikitSimpleComponent } from './features/uikit-simple/uikit-simple.component';
+import { TabbarComponent } from './shared/components/tabbar.component';
+import { PostsListComponent } from './features/posts/components/posts-list.component';
+import { PostsFormComponent } from './features/posts/components/posts-form.component';
+import { PostsErrorsComponent } from './features/posts/components/posts-errors.component';
+import { ModalComponent } from './shared/components/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +28,14 @@ import { HttpClientModule } from '@angular/common/http';
     Contacts2waysComponent,
     StopPropagationDirective,
     PostsComponent,
+    HelloComponent,
+    CardComponent,
+    UikitSimpleComponent,
+    TabbarComponent,
+    PostsListComponent,
+    PostsFormComponent,
+    PostsErrorsComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

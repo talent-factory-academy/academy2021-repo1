@@ -10,7 +10,10 @@ import { getShortText } from '../../shared/utils/string.utils'
   template: `
     <app-posts-errors *ngIf="error" [status]="error.status" ></app-posts-errors>
     
-    <app-modal *ngIf="isModalOpened">
+    <app-modal
+      *ngIf="isModalOpened" 
+      (close)="isModalOpened = false"
+    >
       <app-posts-form
         [activePost]="activePost"
         (save)="savePost($event)"

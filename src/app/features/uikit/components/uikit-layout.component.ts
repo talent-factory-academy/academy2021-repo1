@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 interface Country {
   id: number;
@@ -13,7 +14,7 @@ interface City {
 }
 
 @Component({
-  selector: 'app-uikit-simple',
+  selector: 'app-uikit-layout',
   template: `
     
     <app-tabbar
@@ -60,12 +61,13 @@ interface City {
     </app-card>
   `,
 })
-export class UikitSimpleComponent {
+export class UikitLayoutComponent {
   countries: Country[] = []
   selectedCountry: Country | null = null;
   selectedCity: City | null = null;
 
-  constructor() {
+  constructor(activate: ActivatedRoute) {
+    console.log(activate)
     setTimeout(() => {
       this.countries = [
         {

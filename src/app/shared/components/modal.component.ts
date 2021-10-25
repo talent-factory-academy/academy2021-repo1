@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -7,6 +7,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
     <div class="my-modal bg" >
       <ng-content></ng-content>
       <i class="fa fa-times fa-2x" 
+         (click)="close.emit()"
          style="position: absolute; right: 20px; top: 20px"></i>
     </div>
   `,
@@ -24,7 +25,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   `]
 })
 export class ModalComponent implements OnInit {
-
+  @Output() close = new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {

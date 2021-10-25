@@ -5,7 +5,6 @@ import { User } from '../../model/user';
   selector: 'app-demo-users',
   template: `
     
-    <div class="container mt-3">
       <ul class="list-group">
         <li 
           class="list-group-item d-flex align-items-center gap-2 justify-content-between"
@@ -31,7 +30,7 @@ import { User } from '../../model/user';
           <i class="fa fa-trash" (click)="deleteUser(user)"></i>
         </li>
       </ul>
-    </div>
+
     <div *ngIf="users.length === 0">Non ci sono elementi nell'array</div>
     <div *ngIf="!users">fetching</div>
     

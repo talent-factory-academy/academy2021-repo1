@@ -5,13 +5,6 @@ import { CartItem, Product } from '../../../model/product';
   selector: 'app-products-list',
   template: `
     
-    <!--filtri-->
-    <!--    
-    <app-products-list-item
-      *ngFor="let product of products"
-    ></app-products-list-item>
-    -->
-    
     <div class="row">
       <div class="col-4" *ngFor="let product of products">
         <div class="card" >
@@ -41,24 +34,12 @@ import { CartItem, Product } from '../../../model/product';
   
       </div>
     </div>
-
-    <!--filtri-->
-
-    <!--filtri-->
-    
-
   `,
-  styles: [
-  ]
 })
-export class ProductsListComponent implements OnInit {
+export class ProductsListComponent  {
   @Input() products: Product[] = []
   @Input() selectedProduct: CartItem | null = null;
   @Output() selectVariant = new EventEmitter<CartItem>()
   @Output() addToCart = new EventEmitter()
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

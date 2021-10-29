@@ -44,19 +44,13 @@ export class PostsComponent {
   }
 
 
-
   deletePost(postToDelete: Post) {
-
     this.error = null;
 
     const index = this.posts.findIndex(p => p.id === postToDelete.id)
     this.posts.splice(index, 1);
-    // this.deletingId = null;
-
     this.http.delete(`http://localhost:3000/posts/${postToDelete.id}`)
-      .pipe(
-        delay(2000)
-      )
+      .pipe(delay(2000))
       .subscribe(
         () => {
           // clear activePost

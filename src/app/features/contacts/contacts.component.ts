@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, Directive, ElementRef, NgModule, OnInit, ViewChild } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 
 interface User {
@@ -15,11 +15,10 @@ type UserForm = Omit<User, 'birthday'>;
 @Component({
   selector: 'app-contacts',
   template: `
-    
+    <input type="text" [ngModel]>
     <div class="d-flex justify-content-end me-2">
       <i class="fa fa-plus-circle fa-2x" *ngIf="activeUser" (click)="resetForm()"></i>
     </div>
-    
     
     <app-card title="FORM">
       <form 
@@ -97,6 +96,8 @@ type UserForm = Omit<User, 'birthday'>;
 })
 export class ContactsComponent {
   @ViewChild('f') form!: NgForm;
+
+
   users: UserForm[] = [
     { id: 1, firstname: 'AAAA', lastname: 'B', gender: 'M'},
     { id: 2, firstname: 'CCCC', lastname: 'D', gender: 'F'},

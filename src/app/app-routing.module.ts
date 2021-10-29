@@ -37,6 +37,8 @@ import { AuthGuard } from './core/router/auth.guard';
       { path: '', redirectTo: 'welcome', pathMatch: 'full'},
       { path: 'admin', loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule) },
       { path: 'games', loadChildren: () => import('./features/games/games.module').then(m => m.GamesModule) },
+      { path: 'settings', loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule) },
+      { path: 'demo-service', loadChildren: () => import('./features/demo-service/demo-service.module').then(m => m.DemoServiceModule) },
       { path: '**', redirectTo: ''},
     ])
   ],

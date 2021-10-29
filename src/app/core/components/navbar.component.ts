@@ -15,6 +15,8 @@ import { filter } from 'rxjs/operators';
     <button routerLink="posts"  routerLinkActive="bg-warning" >Posts</button>
     <button routerLink="uikit" routerLinkActive="bg-warning" >uikit</button>
     <button routerLink="games" routerLinkActive="bg-warning" >games</button>
+    <button routerLink="settings" routerLinkActive="bg-warning" >settings</button>
+    <button routerLink="demo-service" routerLinkActive="bg-warning" >demo-service</button>
   `,
   styles: [
   ]

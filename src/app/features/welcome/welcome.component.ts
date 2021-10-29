@@ -1,20 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-welcome',
   template: `
-    <p>
-      welcome works!
-    </p>
+    <h1>{{themeService.theme}}</h1>
   `,
-  styles: [
-  ]
 })
-export class WelcomeComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class WelcomeComponent {
+  constructor(public themeService: ThemeService) {
+    console.log(themeService.theme)
   }
 
   doSomething() {

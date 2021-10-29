@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Post } from '../../../model/post';
 import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-posts-form',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <form #f="ngForm" (submit)="saveHandler(f)">
       <input type="text" placeholder="title" name="title" 
@@ -15,6 +16,7 @@ import { NgForm } from '@angular/forms';
       </button>
       <button type="button" (click)="clearFormHandler(f)" *ngIf="activePost">CLEAR FORM</button>
     </form>
+    {{render()}}
   `,
   styles: [
   ]
@@ -31,5 +33,9 @@ export class PostsFormComponent {
   clearFormHandler(f: NgForm) {
     f.reset();
     this.clear.emit()
+  }
+
+  render() {
+    console.log('render form')
   }
 }

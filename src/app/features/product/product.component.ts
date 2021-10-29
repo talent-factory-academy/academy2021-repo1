@@ -13,7 +13,6 @@ import { FormControl } from '@angular/forms';
       prodotto non esistente
     </div>
 
-    {{random}}
     <ng-template #productInfo>
       <p>
         product details! --> {{id}}
@@ -32,9 +31,8 @@ export class ProductComponent implements OnInit {
   id!: string;
   product: Product | null = null;
   error: boolean = false;
-  random = 1;
   sub!: Subscription;
-  input = new FormControl()
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,

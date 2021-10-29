@@ -6,6 +6,8 @@ import { ProductsListComponent } from './components/products-list.component';
 import { ProductsCartComponent } from './components/products-cart.component';
 import { ProductsListVariantsComponent } from './components/products-list-variants.component';
 import { ProductsListItemComponent } from './components/products-list-item.component';
+import { ShopCartComponent } from './components/shop-cart.component';
+import { ShopService } from './services/shop.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,14 @@ import { ProductsListItemComponent } from './components/products-list-item.compo
     ProductsCartComponent,
     ProductsListVariantsComponent,
     ProductsListItemComponent,
-
+    ShopCartComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
       { path: '', component: DemoShopComponent }
     ])
-  ]
+  ],
+
 })
 export class DemoShopModule { }

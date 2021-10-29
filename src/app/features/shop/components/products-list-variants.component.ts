@@ -17,10 +17,17 @@ import { CartItem, Product } from '../../../model/product';
         (click)="selectVariant.emit({product: product, variant: variant})"
       ></div>
     </div>
+    
+    
+    {{render()}}
   `,
 })
 export class ProductsListVariantsComponent {
   @Input() product!: Product;
   @Input() selectedProduct: CartItem | null = null;
   @Output() selectVariant = new EventEmitter<CartItem>()
+
+  render() {
+    console.log('render list itme')
+  }
 }

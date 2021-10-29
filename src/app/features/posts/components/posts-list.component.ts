@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Post } from '../../../model/post';
 import { getShortText } from '../../../shared/utils/string.utils';
 
 @Component({
   selector: 'app-posts-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <!--POST LIST -->
     <h1>
@@ -22,7 +23,7 @@ import { getShortText } from '../../../shared/utils/string.utils';
       [style.border-top]="first ? '3px solid black' : null"
     >
      {{getShortTextHandler(post.title, 20)}} - {{post.id}}
-
+      
       <i *ngIf="!(deletingId === post.id)"
          class="fa fa-trash" 
          (click)="deletingPostHandler(post, $event)"></i>
@@ -34,8 +35,6 @@ import { getShortText } from '../../../shared/utils/string.utils';
       </span>
     </li>
   `,
-  styles: [
-  ]
 })
 export class PostsListComponent {
   @Input() posts: Post[] = [];
@@ -58,5 +57,6 @@ export class PostsListComponent {
     event.stopPropagation();
     this.deletePost.emit(post);
   }
+
 }
 

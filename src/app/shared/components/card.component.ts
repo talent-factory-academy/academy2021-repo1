@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 export type Types = 'dark' | 'danger' | 'success';
 
 @Component({
   selector: 'app-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="card" [ngClass]="{'mb-3': bottomMargin}">
       <div
@@ -27,6 +28,8 @@ export type Types = 'dark' | 'danger' | 'success';
         <ng-content></ng-content>
       </div>
     </div>
+    
+    {{render()}}
   `,
 })
 export class CardComponent {
@@ -41,5 +44,9 @@ export class CardComponent {
   iconClickHandler(event: MouseEvent) {
     event.stopPropagation();
     this.iconClick.emit()
+  }
+
+  render() {
+    console.log('cardrender')
   }
 }

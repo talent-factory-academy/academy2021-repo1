@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ShopService } from '../shop/services/shop.service';
 
 @Component({
   selector: 'app-login',
